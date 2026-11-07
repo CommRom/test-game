@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bpqbv2r06pkwa"]
+
+[ext_resource type="Script" uid="uid://b2f42u7kywvvq" path="res://scripts/DeathScreen.cs" id="1_uyutr"]
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=888533841]
+process_mode = 3
+script = ExtResource("1_uyutr")
+
+[node name="Control" type="Control" parent="." unique_id=672068755]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1213695274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.64935446, 0.100345425, 0.2064797, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=951621512]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -49.5
+offset_right = 88.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Label" parent="Control/VBoxContainer" unique_id=448876478]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Game Over!"
+
+[node name="Restart" type="Button" parent="Control/VBoxContainer" unique_id=253243935]
+layout_mode = 2
+text = "Restart game"
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer" unique_id=329928917]
+layout_mode = 2
+text = "Exit"

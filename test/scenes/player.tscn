@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bydgq1bvyaibu"]
 
-[ext_resource type="Texture2D" uid="uid://ci7jv5tnh4tbu" path="res://Main Ship - Base - Full health.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://b3f154qvauets" path="res://Player.cs" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://ci7jv5tnh4tbu" path="res://sprites/Main Ship - Base - Full health.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bpiu21fr6prdx" path="res://scripts/Player.cs" id="1_onrkg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svoxj"]
 radius = 11.0

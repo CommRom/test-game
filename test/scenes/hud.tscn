@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://3b75reufoy48"]
+
+[ext_resource type="Script" uid="uid://bfret2thdvab7" path="res://scripts/Hud.cs" id="1_ahhtf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=947304194]
+script = ExtResource("1_ahhtf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1310724430]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HPBar" type="ProgressBar" parent="MarginContainer" unique_id=566416270]
+unique_name_in_owner = true
+layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci7jv5tnh4tbu"
-path="res://.godot/imported/Main Ship - Base - Full health.png-b12d3de2536937d806956fb7814ccaa6.ctex"
+uid="uid://yw5i2vns371"
+path="res://.godot/imported/SpaceBackground.png-183e9d7c0bca1acc5e03b5348633e958.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main Ship - Base - Full health.png"
-dest_files=["res://.godot/imported/Main Ship - Base - Full health.png-b12d3de2536937d806956fb7814ccaa6.ctex"]
+source_file="res://sprites/SpaceBackground.png"
+dest_files=["res://.godot/imported/SpaceBackground.png-183e9d7c0bca1acc5e03b5348633e958.ctex"]
 
 [params]
 

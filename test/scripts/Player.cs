@@ -6,24 +6,37 @@ public partial class Player : CharacterBody2D
 	public const float MaxSpeed = 300.0f;
 	public const float Acceleration = 200.0f;
 	public const float Deceleration = 100.0f;
-	private int hp = 100;
+	private int hp = 80;
+	public int MaxHp = 80;
+	private bool isDead = false;
+	public int CurrentHp => hp;
+	
+	[Signal] public delegate void DiedEventHandler();
+	[Signal] public delegate void HealthChangedEventHandler(int current, int max);
 	
 	public void TakeDamage(int damage)
 	{
-		hp -= damage;
+		if (isDead) return;
+		
+		hp = Mathf.Max(hp - damage, 0);
 
 		GD.Print("Player health: " + hp);
+		
+		EmitSignal(SignalName.HealthChanged, hp, MaxHp);
 
 		if (hp <= 0)
 		{
+			isDead = true;
 			Die();
 		}
+		
 	}
 	
 	public void Heal(int healing){
-		if (hp < 100){
+		if (hp < MaxHp){
 		hp += healing;
 		}
+		EmitSignal(SignalName.HealthChanged, hp, MaxHp);
 		
 		GD.Print("Players health: " + hp);
 	}
@@ -32,6 +45,13 @@ public partial class Player : CharacterBody2D
 	{
 		GD.Print("Player died!");
 		QueueFree();
+		EmitSignal(SignalName.Died);
+	}
+	
+	public override void _Ready()
+	{
+		hp = MaxHp;
+		EmitSignal(SignalName.HealthChanged, hp, MaxHp);
 	}
 
 	public override void _PhysicsProcess(double delta)

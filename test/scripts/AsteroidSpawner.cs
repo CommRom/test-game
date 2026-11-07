@@ -5,7 +5,7 @@ public partial class AsteroidSpawner : Node2D
 {
 	[Export] public PackedScene AsteroidScene;
 
-	[Export] public float SpawnInterval = 1.0f;
+	[Export] public float SpawnInterval = 0.8f;
 
 	private Timer spawnTimer;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();

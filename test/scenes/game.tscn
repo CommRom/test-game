@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://lju8rbqgrtpf"]
 
-[ext_resource type="PackedScene" uid="uid://bydgq1bvyaibu" path="res://player.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://b6p4au81wuggr" path="res://battery.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://vyt5sowt688i" path="res://small_asteroid.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bydgq1bvyaibu" path="res://scenes/player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dgl4qu5knt4q2" path="res://scripts/Game.cs" id="1_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b6p4au81wuggr" path="res://scenes/battery.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://vyt5sowt688i" path="res://scenes/small_asteroid.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://tsku53h262je" path="res://scenes/asteroid_spawner.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bqbg62w2i04of" path="res://scenes/battery_spawner.tscn" id="5_7jktm"]
-[ext_resource type="Texture2D" uid="uid://delj3dssgydcy" path="res://SpaceBackground.png" id="6_ryrav"]
+[ext_resource type="Texture2D" uid="uid://yw5i2vns371" path="res://sprites/SpaceBackground.png" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bpqbv2r06pkwa" path="res://scenes/death_screen.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://3b75reufoy48" path="res://scenes/hud.tscn" id="9_0tnpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
 normal = Vector2(0.0075469553, 0.99997157)
@@ -19,7 +22,10 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_amgs2"]
 normal = Vector2(0.9998612, 0.016664352)
 
-[node name="Game" type="Node2D" unique_id=1790856331]
+[node name="Game" type="Node2D" unique_id=1790856331 node_paths=PackedStringArray("HudNode", "PlayerNode")]
+script = ExtResource("1_u5sy4")
+HudNode = NodePath("HUD")
+PlayerNode = NodePath("Player")
 
 [node name="Player" parent="." unique_id=1980514728 instance=ExtResource("1_80nbo")]
 position = Vector2(0, 10)
@@ -36,19 +42,13 @@ position = Vector2(84, -9)
 [node name="battery3" parent="." unique_id=506572026 instance=ExtResource("2_e2o6t")]
 position = Vector2(-43, -81)
 
-[node name="Area2D" parent="." unique_id=88882800 instance=ExtResource("3_feb5d")]
+[node name="Asteroid1" parent="." unique_id=88882800 instance=ExtResource("3_feb5d")]
 position = Vector2(28, -57)
 
-[node name="Area2D2" parent="." unique_id=1031281428 instance=ExtResource("3_feb5d")]
-position = Vector2(42, -99)
-
-[node name="Area2D3" parent="." unique_id=966720254 instance=ExtResource("3_feb5d")]
+[node name="Asteroid3" parent="." unique_id=966720254 instance=ExtResource("3_feb5d")]
 position = Vector2(66, 38)
 
-[node name="Area2D6" parent="." unique_id=869398988 instance=ExtResource("3_feb5d")]
-position = Vector2(-22, -115)
-
-[node name="Area2D7" parent="." unique_id=943612628 instance=ExtResource("3_feb5d")]
+[node name="Asteroid5" parent="." unique_id=943612628 instance=ExtResource("3_feb5d")]
 position = Vector2(-65, 35)
 
 [node name="AsteroidSpawner" parent="." unique_id=315447416 instance=ExtResource("4_fc0e3")]
@@ -79,4 +79,18 @@ show_behind_parent = true
 light_mask = 0
 visibility_layer = 4
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_ryrav")
+texture = ExtResource("6_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=931942839]
+offset_left = 282.0
+offset_top = -179.0
+offset_right = 319.0
+offset_bottom = -148.0
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=797182236]
+layout_mode = 2
+text = "Exit"
+
+[node name="DeathScreen" parent="." unique_id=888533841 instance=ExtResource("8_gee14")]
+
+[node name="HUD" parent="." unique_id=947304194 instance=ExtResource("9_0tnpc")]

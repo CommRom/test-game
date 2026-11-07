@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vyt5sowt688i"]
 
-[ext_resource type="Texture2D" uid="uid://b6ifs1qgexu1m" path="res://medium asteriod 1.png" id="1_5yf7l"]
-[ext_resource type="Script" uid="uid://cboh21q8qon1q" path="res://SmallAsteroid.cs" id="1_ndwlm"]
+[ext_resource type="Texture2D" uid="uid://bios3yv658vnt" path="res://sprites/medium asteriod 1.png" id="1_5yf7l"]
+[ext_resource type="Script" uid="uid://7i1tbf7k83m5" path="res://scripts/SmallAsteroid.cs" id="1_ndwlm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0s7c3"]
 radius = 6.0827627
