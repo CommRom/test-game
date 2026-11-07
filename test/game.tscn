@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://lju8rbqgrtpf"]
+
+[ext_resource type="PackedScene" uid="uid://bydgq1bvyaibu" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://b6p4au81wuggr" path="res://battery.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://vyt5sowt688i" path="res://small_asteroid.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://tsku53h262je" path="res://scenes/asteroid_spawner.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bqbg62w2i04of" path="res://scenes/battery_spawner.tscn" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://delj3dssgydcy" path="res://SpaceBackground.png" id="6_ryrav"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
+normal = Vector2(0.0075469553, 0.99997157)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_spr7d"]
+distance = -3.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s7c3"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_amgs2"]
+normal = Vector2(0.9998612, 0.016664352)
+
+[node name="Game" type="Node2D" unique_id=1790856331]
+
+[node name="Player" parent="." unique_id=1980514728 instance=ExtResource("1_80nbo")]
+position = Vector2(0, 10)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2146393605]
+zoom = Vector2(1.8, 1.8)
+
+[node name="battery" parent="." unique_id=681274287 instance=ExtResource("2_e2o6t")]
+position = Vector2(73, -68)
+
+[node name="battery2" parent="." unique_id=1226753002 instance=ExtResource("2_e2o6t")]
+position = Vector2(84, -9)
+
+[node name="battery3" parent="." unique_id=506572026 instance=ExtResource("2_e2o6t")]
+position = Vector2(-43, -81)
+
+[node name="Area2D" parent="." unique_id=88882800 instance=ExtResource("3_feb5d")]
+position = Vector2(28, -57)
+
+[node name="Area2D2" parent="." unique_id=1031281428 instance=ExtResource("3_feb5d")]
+position = Vector2(42, -99)
+
+[node name="Area2D3" parent="." unique_id=966720254 instance=ExtResource("3_feb5d")]
+position = Vector2(66, 38)
+
+[node name="Area2D6" parent="." unique_id=869398988 instance=ExtResource("3_feb5d")]
+position = Vector2(-22, -115)
+
+[node name="Area2D7" parent="." unique_id=943612628 instance=ExtResource("3_feb5d")]
+position = Vector2(-65, 35)
+
+[node name="AsteroidSpawner" parent="." unique_id=315447416 instance=ExtResource("4_fc0e3")]
+
+[node name="BatterySpawner" parent="." unique_id=55116097 instance=ExtResource("5_7jktm")]
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=973896715]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=1402397467]
+visibility_layer = 3
+position = Vector2(-3, -182)
+shape = SubResource("WorldBoundaryShape2D_ryrav")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries" unique_id=348445921]
+position = Vector2(-1, 177)
+shape = SubResource("WorldBoundaryShape2D_spr7d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries" unique_id=3056489]
+position = Vector2(320, 1)
+shape = SubResource("WorldBoundaryShape2D_0s7c3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries" unique_id=1824627836]
+position = Vector2(-319, 1)
+shape = SubResource("WorldBoundaryShape2D_amgs2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=442697418]
+show_behind_parent = true
+light_mask = 0
+visibility_layer = 4
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ryrav")

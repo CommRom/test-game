@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://vyt5sowt688i"]
+
+[ext_resource type="Texture2D" uid="uid://b6ifs1qgexu1m" path="res://medium asteriod 1.png" id="1_5yf7l"]
+[ext_resource type="Script" uid="uid://cboh21q8qon1q" path="res://SmallAsteroid.cs" id="1_ndwlm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0s7c3"]
+radius = 6.0827627
+
+[node name="Small_Asteroid" type="Area2D" unique_id=88882800]
+collision_mask = 3
+script = ExtResource("1_ndwlm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=552601197]
+position = Vector2(0, 1)
+texture = ExtResource("1_5yf7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=69461885]
+shape = SubResource("CircleShape2D_0s7c3")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=2046441300]
+rect = Rect2(-6, -7, 12, 13)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="OnScreenExited"]
