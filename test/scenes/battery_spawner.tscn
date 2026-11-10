@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bqbg62w2i04of"]
-
-[ext_resource type="Script" uid="uid://djm7dr5dm2ldp" path="res://scripts/BatterySpawner.cs" id="1_cflia"]
-[ext_resource type="PackedScene" uid="uid://b6p4au81wuggr" path="res://scenes/battery.tscn" id="2_k8hhf"]
-
-[node name="BatterySpawner" type="Node2D" unique_id=55116097]
-script = ExtResource("1_cflia")
-BatteryScene = ExtResource("2_k8hhf")

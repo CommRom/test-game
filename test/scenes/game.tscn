@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://dgl4qu5knt4q2" path="res://scripts/Game.cs" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b6p4au81wuggr" path="res://scenes/battery.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://vyt5sowt688i" path="res://scenes/small_asteroid.tscn" id="3_feb5d"]
-[ext_resource type="PackedScene" uid="uid://tsku53h262je" path="res://scenes/asteroid_spawner.tscn" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://bqbg62w2i04of" path="res://scenes/battery_spawner.tscn" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://yw5i2vns371" path="res://sprites/SpaceBackground.png" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bpqbv2r06pkwa" path="res://scenes/death_screen.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://3b75reufoy48" path="res://scenes/hud.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dftv6tq7531kp" path="res://scenes/spawner.tscn" id="10_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dl16mghp54at" path="res://scenes/shield.tscn" id="11_dinhu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
 normal = Vector2(0.0075469553, 0.99997157)
@@ -28,32 +28,10 @@ HudNode = NodePath("HUD")
 PlayerNode = NodePath("Player")
 
 [node name="Player" parent="." unique_id=1980514728 instance=ExtResource("1_80nbo")]
-position = Vector2(0, 10)
+position = Vector2(0, 11)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2146393605]
 zoom = Vector2(1.8, 1.8)
-
-[node name="battery" parent="." unique_id=681274287 instance=ExtResource("2_e2o6t")]
-position = Vector2(73, -68)
-
-[node name="battery2" parent="." unique_id=1226753002 instance=ExtResource("2_e2o6t")]
-position = Vector2(84, -9)
-
-[node name="battery3" parent="." unique_id=506572026 instance=ExtResource("2_e2o6t")]
-position = Vector2(-43, -81)
-
-[node name="Asteroid1" parent="." unique_id=88882800 instance=ExtResource("3_feb5d")]
-position = Vector2(28, -57)
-
-[node name="Asteroid3" parent="." unique_id=966720254 instance=ExtResource("3_feb5d")]
-position = Vector2(66, 38)
-
-[node name="Asteroid5" parent="." unique_id=943612628 instance=ExtResource("3_feb5d")]
-position = Vector2(-65, 35)
-
-[node name="AsteroidSpawner" parent="." unique_id=315447416 instance=ExtResource("4_fc0e3")]
-
-[node name="BatterySpawner" parent="." unique_id=55116097 instance=ExtResource("5_7jktm")]
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=973896715]
 
@@ -94,3 +72,19 @@ text = "Exit"
 [node name="DeathScreen" parent="." unique_id=888533841 instance=ExtResource("8_gee14")]
 
 [node name="HUD" parent="." unique_id=947304194 instance=ExtResource("9_0tnpc")]
+
+[node name="ShieldSpawner" parent="." unique_id=410687564 node_paths=PackedStringArray("AvoidTarget") instance=ExtResource("10_kvpfn")]
+ItemScene = ExtResource("11_dinhu")
+SpawnInterval = 15.0
+AvoidTarget = NodePath("../Player")
+
+[node name="AsteroidSpawner" parent="." unique_id=692698389 node_paths=PackedStringArray("AvoidTarget") instance=ExtResource("10_kvpfn")]
+ItemScene = ExtResource("3_feb5d")
+SpawnInterval = 0.6
+AvoidTarget = NodePath("../Player")
+AvoidRadius = 100.0
+
+[node name="BatterySpawner2" parent="." unique_id=825793720 node_paths=PackedStringArray("AvoidTarget") instance=ExtResource("10_kvpfn")]
+ItemScene = ExtResource("2_e2o6t")
+SpawnInterval = 8.0
+AvoidTarget = NodePath("../Player")

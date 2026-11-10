@@ -20,7 +20,6 @@ public partial class SmallAsteroid : Area2D
 	private void _on_body_entered(Node2D body)
 	{
 		if (body is Player player){
-			GD.Print("Player entered");
 			player.TakeDamage(20);
 			QueueFree();
 			}
@@ -40,6 +39,5 @@ public partial class SmallAsteroid : Area2D
 	private void OnScreenExited()
 	{
    		 QueueFree();
-		GD.Print("Exited");
 	}
 }

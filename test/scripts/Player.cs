@@ -3,6 +3,11 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
+	[Export] public Node2D ShieldVisual;
+	[Export] public CollisionShape2D ShieldCollision;
+	
+	private bool hasShield = false;
+	
 	public const float MaxSpeed = 300.0f;
 	public const float Acceleration = 200.0f;
 	public const float Deceleration = 100.0f;
@@ -14,9 +19,24 @@ public partial class Player : CharacterBody2D
 	[Signal] public delegate void DiedEventHandler();
 	[Signal] public delegate void HealthChangedEventHandler(int current, int max);
 	
+	public void ActivateShield()
+	{
+		hasShield = true;
+		ShieldVisual.Visible = true;
+		ShieldCollision.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
+	}
+	
 	public void TakeDamage(int damage)
 	{
 		if (isDead) return;
+		
+		if (hasShield)
+		{
+			hasShield = false;
+			ShieldVisual.Visible = false;
+			ShieldCollision.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+			return;
+		}
 		
 		hp = Mathf.Max(hp - damage, 0);
 
