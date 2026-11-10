@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0s7c3"]
 radius = 6.0827627
 
-[node name="Small_Asteroid" type="Area2D" unique_id=88882800]
+[node name="SmallAsteroid" type="Area2D" unique_id=88882800]
 collision_mask = 3
 script = ExtResource("1_ndwlm")
 

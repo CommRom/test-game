@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://3ghy3mapaxll"]
+
+[ext_resource type="PackedScene" uid="uid://vyt5sowt688i" path="res://scenes/asteroid.tscn" id="1_r0lib"]
+[ext_resource type="Texture2D" uid="uid://dfj02mbx5huti" path="res://sprites/large asteriod.png" id="2_mhjcm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhjcm"]
+radius = 13.038404
+
+[node name="BigAsteroid" unique_id=88882800 instance=ExtResource("1_r0lib")]
+Speed = 40.0
+Damage = 40
+MinSpinDegrees = 10.0
+MaxSpinDegrees = 40.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=552601197]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_mhjcm")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=69461885]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_mhjcm")
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="2" unique_id=2046441300]
+rect = Rect2(-12, -11, 24, 24)
