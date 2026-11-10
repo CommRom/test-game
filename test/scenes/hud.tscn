@@ -2,13 +2,37 @@
 
 [ext_resource type="Script" uid="uid://bfret2thdvab7" path="res://scripts/Hud.cs" id="1_ahhtf"]
 
-[node name="HUD" type="CanvasLayer" unique_id=947304194]
+[node name="HUD" type="CanvasLayer" unique_id=947304194 node_paths=PackedStringArray("ScoreLabel", "TimeLabel")]
 script = ExtResource("1_ahhtf")
+ScoreLabel = NodePath("PointsContainer/Points")
+TimeLabel = NodePath("TimeContainer/Time Survived")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1310724430]
+[node name="HPContainer" type="MarginContainer" parent="." unique_id=1310724430]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HPBar" type="ProgressBar" parent="MarginContainer" unique_id=566416270]
+[node name="HPBar" type="ProgressBar" parent="HPContainer" unique_id=566416270]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PointsContainer" type="MarginContainer" parent="." unique_id=1178608560]
+offset_left = 41.0
+offset_right = 94.0
+offset_bottom = 27.0
+
+[node name="Points" type="Label" parent="PointsContainer" unique_id=273162789]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Points:"
+
+[node name="TimeContainer" type="MarginContainer" parent="." unique_id=944954103]
+offset_left = 106.0
+offset_top = 2.0
+offset_right = 180.0
+offset_bottom = 24.0
+
+[node name="Time Survived" type="Label" parent="TimeContainer" unique_id=806977137]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Time:
+"

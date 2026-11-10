@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://jfuo1lvn330o"]
+
+[ext_resource type="Script" uid="uid://cnrlnhc3i0ar4" path="res://Strawberry.cs" id="1_e8kwr"]
+[ext_resource type="Texture2D" uid="uid://cge1m65lcsgw4" path="res://sprites/Strawberry.png" id="1_y1u1h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spr7d"]
+radius = 5.0
+height = 16.0
+
+[node name="Strawberry" type="Area2D" unique_id=300582852]
+collision_mask = 2
+script = ExtResource("1_e8kwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=331316691]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_y1u1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462191154]
+shape = SubResource("CapsuleShape2D_spr7d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

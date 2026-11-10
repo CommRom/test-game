@@ -4,6 +4,9 @@ public partial class DeathScreen : CanvasLayer
 {
 	[Export(PropertyHint.File, "*.tscn")] public string MenuScenePath = "res://scenes/main_menu.tscn";
 
+	[Export] public Label ScoreLabel;
+	[Export] public Label TimeLabel;
+	
 	public override void _Ready()
 	{
 		Visible = false;
@@ -12,8 +15,11 @@ public partial class DeathScreen : CanvasLayer
 		GetNode<Button>("Control/VBoxContainer/Exit").Pressed += OnMenuPressed;
 	}
 
-	public void ShowDeath()
+	public void ShowDeath(int score, double seconds)
 	{
+		ScoreLabel.Text = $"Score: {score}";
+		TimeLabel.Text = $"Time survived: {Hud.FormatTime(seconds)}";
+		
 		Visible = true;
 		GetTree().Paused = true;
 	}

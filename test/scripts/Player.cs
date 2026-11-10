@@ -18,6 +18,15 @@ public partial class Player : CharacterBody2D
 	
 	[Signal] public delegate void DiedEventHandler();
 	[Signal] public delegate void HealthChangedEventHandler(int current, int max);
+	[Signal] public delegate void ScoreChangedEventHandler(int score);
+
+	public int Score { get; private set; }
+
+	public void AddPoints(int amount)
+	{
+		Score += amount;
+		EmitSignal(SignalName.ScoreChanged, Score);
+	}
 	
 	public void ActivateShield()
 	{

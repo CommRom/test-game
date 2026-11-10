@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dftv6tq7531kp" path="res://scenes/spawner.tscn" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://3ghy3mapaxll" path="res://scenes/big_asteroid.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dl16mghp54at" path="res://scenes/shield.tscn" id="11_dinhu"]
+[ext_resource type="PackedScene" uid="uid://jfuo1lvn330o" path="res://strawberry.tscn" id="11_kvpfn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
 normal = Vector2(0.0075469553, 0.99997157)
@@ -23,10 +24,11 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_amgs2"]
 normal = Vector2(0.9998612, 0.016664352)
 
-[node name="Game" type="Node2D" unique_id=1790856331 node_paths=PackedStringArray("HudNode", "PlayerNode")]
+[node name="Game" type="Node2D" unique_id=1790856331 node_paths=PackedStringArray("HudNode", "PlayerNode", "DeathScreenNode")]
 script = ExtResource("1_u5sy4")
 HudNode = NodePath("HUD")
 PlayerNode = NodePath("Player")
+DeathScreenNode = NodePath("DeathScreen")
 
 [node name="Player" parent="." unique_id=1980514728 instance=ExtResource("1_80nbo")]
 position = Vector2(0, 11)
@@ -93,3 +95,6 @@ AvoidTarget = NodePath("../Player")
 [node name="BigAsteroidSpawner" parent="." unique_id=445847736 instance=ExtResource("10_kvpfn")]
 ItemScene = ExtResource("10_vtaks")
 StartDelay = 10.0
+
+[node name="StrawberrySpawner" parent="." unique_id=772032668 instance=ExtResource("10_kvpfn")]
+ItemScene = ExtResource("11_kvpfn")

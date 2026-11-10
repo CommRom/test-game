@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b2f42u7kywvvq" path="res://scripts/DeathScreen.cs" id="1_uyutr"]
 
-[node name="DeathScreen" type="CanvasLayer" unique_id=888533841]
+[node name="DeathScreen" type="CanvasLayer" unique_id=888533841 node_paths=PackedStringArray("ScoreLabel", "TimeLabel")]
 process_mode = 3
 script = ExtResource("1_uyutr")
+ScoreLabel = NodePath("Control/VBoxContainer/Points")
+TimeLabel = NodePath("Control/VBoxContainer/Time")
 
 [node name="Control" type="Control" parent="." unique_id=672068755]
 layout_mode = 3
@@ -44,6 +46,12 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Game Over!"
+
+[node name="Points" type="Label" parent="Control/VBoxContainer" unique_id=286234656]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="Control/VBoxContainer" unique_id=1678619983]
+layout_mode = 2
 
 [node name="Restart" type="Button" parent="Control/VBoxContainer" unique_id=253243935]
 layout_mode = 2
